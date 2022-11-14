@@ -69,9 +69,7 @@ class _PlanScreenState extends State<PlanScreen> {
     return FloatingActionButton(
       child: const Icon(Icons.add),
       onPressed: () {
-        createNewTask().then((value) => setState(() {
-              plan = value;
-            }));
+        createNewTask().then((_) => setState(() {}));
       },
     );
   }
@@ -93,24 +91,18 @@ class _PlanScreenState extends State<PlanScreen> {
           value: plan.tasks[index].complete,
           onChanged: (selected) {
             plan.tasks[index].complete = selected!;
-            writeTask(plan).then((value) => setState(() {
-                  plan = value;
-                }));
+            writeTask(plan).then((_) => setState(() {}));
           }),
       title: TextFormField(
           controller: textController,
           onFieldSubmitted: (text) {
             plan.tasks[index].description = text;
-            writeTask(plan).then((value) => setState(() {
-                  plan = value;
-                }));
+            writeTask(plan).then((_) => setState(() {}));
           }),
       trailing: IconButton(
         icon: const Icon(Icons.delete),
         onPressed: () {
-          deteteTask(index).then((value) => setState(() {
-                plan = value;
-              }));
+          deteteTask(index).then((_) => setState(() {}));
         },
       ),
     );
@@ -120,23 +112,17 @@ class _PlanScreenState extends State<PlanScreen> {
     final filecontroller = Provider.of<FileController>(context, listen: false);
 
     await filecontroller.createNewTask();
-
-    return filecontroller.plan;
   }
 
   Future writeTask(Plan plan) async {
     final filecontroller = Provider.of<FileController>(context, listen: false);
 
     await filecontroller.writeTask(plan);
-
-    return filecontroller.plan;
   }
 
   Future deteteTask(index) async {
     final filecontroller = Provider.of<FileController>(context, listen: false);
 
     await filecontroller.deteteTask(index);
-
-    return filecontroller.plan;
   }
 }
