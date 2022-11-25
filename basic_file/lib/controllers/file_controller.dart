@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:basic_file/models/plan.dart';
 import 'package:basic_file/models/task.dart';
-import 'package:basic_file/providers/file_manager.dart';
+import 'package:basic_file/utils/file_manager.dart';
 import 'package:flutter/material.dart';
 
 class FileController extends ChangeNotifier {

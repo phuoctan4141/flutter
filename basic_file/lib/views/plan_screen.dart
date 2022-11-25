@@ -22,16 +22,13 @@ class _PlanScreenState extends State<PlanScreen> {
   void initState() {
     super.initState();
 
-    scrollController = ScrollController()
-      ..addListener(() {
-        FocusScope.of(context).requestFocus(FocusNode());
-      });
+    scrollController = ScrollController();
 
-    final filcontroller = Provider.of<FileController>(context, listen: false);
+    final filecontroller = Provider.of<FileController>(context, listen: false);
 
-    filcontroller.fetandcreateJsonFile().then((_) => setState(() {}));
+    filecontroller.fetandcreateJsonFile().then((_) => setState(() {}));
 
-    filcontroller.fetandsetPlan().then((_) {
+    filecontroller.fetandsetPlan().then((_) {
       setState(() {
         _isLoading = false;
       });
@@ -77,6 +74,7 @@ class _PlanScreenState extends State<PlanScreen> {
   Widget _buildList(Plan plan) {
     return ListView.builder(
         controller: scrollController,
+        shrinkWrap: true,
         itemCount: plan.tasks.length,
         itemBuilder: (context, index) => _buildTaskTile(plan, index));
   }
