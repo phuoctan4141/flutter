@@ -207,7 +207,9 @@ Cụ thể tại: [native_opencv_method_channel.dart](https://github.com/phuocta
 Cụ thể tại: [templatePage.dart](https://github.com/phuoctan4141/flutter/blob/main/bakedsalmon/lib/templatePage.dart)
 
 
-### Sửa lỗi tflite lib
+### flutter_tflite
+
+Hướng dẫn cài đặt flutter_tflite: [flutter_tflite](https://github.com/shaqian/flutter_tflite#readme) 
 
 Thay đổi compile thành implementation tại (build.gradle) của thư viện tflite, cụ thể tại: [build.gradle](https://github.com/shaqian/flutter_tflite/blob/master/android/build.gradle)
 
